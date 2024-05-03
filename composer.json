@@ -1,0 +1,25 @@
+{
+    "name": "thinmoto/ui",
+    "autoload": {
+        "psr-4": {
+            "Thinmoto\\Ui\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "thinmoto",
+            "email": "thinmoto@gmail.com"
+        }
+    ],
+    "require": {
+        "laravel/framework": "^10.0|^11.0",
+        "livewire/livewire": "^3.0"
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "Thinmoto\\Ui\\Providers\\PackageServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,0 +1,85 @@
+@import "bootstrap/scss/bootstrap";
+
+.form-group
+{
+    margin-bottom: 1em;
+
+    label
+    {
+        display: block;
+    }
+
+    .invalid-feedback
+    {
+        display: block !important;
+    }
+
+    &.is-invalid
+    {
+        .form-control
+        {
+            border-color: var(--#{$prefix}form-invalid-color);
+
+            @if $enable-validation-icons
+            {
+                padding-right: $input-height-inner;
+                background-image: escape-svg($form-feedback-icon-invalid);
+                background-repeat: no-repeat;
+                background-position: right $input-height-inner-quarter center;
+                background-size: $input-height-inner-half $input-height-inner-half;
+            }
+
+            &:focus
+            {
+                border-color: var(--#{$prefix}form-invalid-border-color);
+                box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+            }
+        }
+    }
+}
+
+.ui-wire-loading
+{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+
+    .loader
+    {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        position: relative;
+        animation: rotating 1s linear infinite
+    }
+
+    .loader::before , .loader::after
+    {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 5px solid $light;
+        animation: prixClipFix 2s linear infinite ;
+    }
+
+    .loader::after
+    {
+        transform: rotate3d(90, 90, 0, 180deg );
+        border-color: $primary;
+    }
+
+    @keyframes rotating
+    {
+        0% { transform: rotate(0deg) }
+        100% { transform: rotate(360deg) }
+    }
+
+    @keyframes prixClipFix
+    {
+        0%   { clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0) }
+        50%  { clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0) }
+        75%, 100%  { clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%) }
+    }
+}
