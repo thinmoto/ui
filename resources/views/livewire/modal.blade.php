@@ -24,7 +24,7 @@
                 </div>
                 <div class="modal-body">
                     <div wire:loading.block wire:target="modalState">
-                        <x-base::ui.loader />
+                        {{--<x-base::ui.loader />--}}
                     </div>
                     <div wire:loading.remove wire:target="modalState">
                         @yield('content')
