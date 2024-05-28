@@ -1,4 +1,4 @@
-@import "bootstrap/scss/bootstrap";
+// @import "bootstrap/scss/bootstrap";
 
 .form-group
 {
@@ -46,8 +46,8 @@
 
     .loader
     {
-        width: 48px;
-        height: 48px;
+        width: 3em;
+        height: 3em;
         border-radius: 50%;
         position: relative;
         animation: rotating 1s linear infinite
@@ -82,4 +82,51 @@
         50%  { clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0) }
         75%, 100%  { clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%) }
     }
+
+    &.ui-wire-loading-sm
+    {
+        .loader
+        {
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        .loader::before , .loader::after
+        {
+            border-width: 3px;
+        }
+    }
+}
+
+// modal
+
+@for $counter from 0 through 10 {
+    .modal_#{$counter}
+    {
+        z-index: 1058+$counter !important;
+    }
+
+    .modal_backdrop_#{$counter}
+    {
+        z-index: 1057+$counter !important;
+    }
+}
+
+// edit view
+
+@for $counter from 0 through 10 {
+    .edit_view_#{$counter}
+    {
+        z-index: 1018+$counter !important;
+    }
+
+    .edit_view_backdrop_#{$counter}
+    {
+        z-index: 1017+$counter !important;
+    }
+}
+
+.offcanvas-backdrop.fade:not(.show)
+{
+    display: none;
 }

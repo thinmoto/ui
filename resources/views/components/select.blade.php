@@ -1,5 +1,5 @@
 <select
-    {{ $attributes->merge(['class' => 'form-control '.$class])->except('errors') }}
+    {{ $attributes->merge(['class' => 'form-select '.$class])->except('errors') }}
 >
 @if($empty != '')
         <option value="">{{ $empty }}</option>

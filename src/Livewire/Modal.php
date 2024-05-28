@@ -2,6 +2,7 @@
 
 namespace Thinmoto\Ui\Livewire;
 
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Modal extends Component
@@ -19,7 +20,6 @@ class Modal extends Component
     public function open(): void
     {
         $this->modalState = true;
-        $this->modalStateHook = time();
 
 		$this->dispatch('ui-update-modal-state');
     }

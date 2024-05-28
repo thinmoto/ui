@@ -1,4 +1,4 @@
-<div {{ $attributes->class(['form-group']) }}>
+<div {{ $attributes->merge(['class' => 'form-group '.$class]) }}>
     @if($label)
         <label class="form-label">{!! $label !!}</label>
     @endif

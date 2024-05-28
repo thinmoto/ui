@@ -16,8 +16,9 @@ class Select extends Component
 
 	public function render(): View|string
 	{
-		if(count($this->errors))
-			$this->class .= ' is-invalid';
+		if(!empty($this->errors))
+			if(count($this->errors))
+				$this->class .= ' is-invalid';
 
 		return view('ui::components.select');
 	}

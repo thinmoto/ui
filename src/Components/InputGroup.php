@@ -5,14 +5,14 @@ namespace Thinmoto\Ui\Components;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class Loader extends Component
+class InputGroup extends Component
 {
 	public function __construct(
-		public string $size = 'md'
-	){ }
+		public ?array $errors = null,
+	) {}
 
 	public function render(): View|string
 	{
-		return view('ui::components.loader');
+		return view('ui::components.input-group');
 	}
 }

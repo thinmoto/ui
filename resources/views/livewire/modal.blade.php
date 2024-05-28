@@ -1,4 +1,4 @@
-<div x-data="Modal($refs.modal, @entangle('modalState'), @entangle('modalStateHook'))" x-init="$watch('myState', value => updateState())">
+<div x-data="Modal($refs.modal, @entangle('modalState').live, @entangle('modalStateHook').live)" x-init="$watch('myState', value => updateState())">
     <div
             x-ref="modal"
             @class(['modal fade', 'show' => $modalState])
@@ -9,25 +9,39 @@
             wire:ignore.self
             x-on:keydown.escape.window="hide()"
     >
-        <div class="modal-dialog modal-{{ $modalSize }}">
+        <div
+                class="transform transition-all modal-dialog modal-{{ $modalSize }}"
+                x-transition:enter="ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave="ease-in duration-200"
+                x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        >
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title mt-0 d-flex align-items-center">
-                        <div wire:loading.block wire:target="modalStateHook">
-                            {{ __('ui::loading') }}
-                        </div>
+                        @if(!$modalState)
+                            <div>
+                                {{ __('ui::loading') }}
+                            </div>
+                        @endif
+
                         <div wire:loading.remove wire:target="modalStateHook">
-                            @yield('title')
+                            @yield('modal-title')
                         </div>
                     </h5>
                     <button type="button" class="btn-close" x-on:click="hide()" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div wire:loading.block wire:target="modalState">
-                        {{--<x-base::ui.loader />--}}
-                    </div>
-                    <div wire:loading.remove wire:target="modalState">
-                        @yield('content')
+                    @if(!$modalState)
+                        <div>
+                            <x-ui::loader />
+                        </div>
+                    @endif
+
+                    <div wire:loading.remove wire:target="modalState" wire:key="ui-modal-content">
+                        @yield('modal-content')
                     </div>
                 </div>
             </div>
