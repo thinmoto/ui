@@ -11,7 +11,9 @@ class Select extends Component
 		public array $options,
 		public string $class = '',
 		public string $empty = '',
+		public bool $disabled = false,
 		public $errors = [],
+		public $disabledOptions = [],
 	) {}
 
 	public function render(): View|string
