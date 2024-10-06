@@ -27,7 +27,7 @@
                             </div>
                         @endif
 
-                        <div wire:loading.remove wire:target="modalStateHook">
+                        <div wire:loading.class="d-none" wire:target="modalStateHook">
                             @yield('modal-title')
                         </div>
                     </h5>
@@ -40,7 +40,7 @@
                         </div>
                     @endif
 
-                    <div wire:loading.remove wire:target="modalState" wire:key="ui-modal-content">
+                    <div wire:loading.class="d-none" wire:target="modalState" wire:key="ui-modal-content">
                         @yield('modal-content')
                     </div>
                 </div>

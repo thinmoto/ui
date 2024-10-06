@@ -16,7 +16,7 @@
                     </div>
                 @endif
 
-                <div wire:loading.remove wire:target="viewState">
+                <div wire:loading.class="d-none" wire:target="viewState">
                     @yield('title')
                 </div>
 
@@ -31,7 +31,7 @@
                 </div>
             @endif
 
-            <div wire:loading.remove wire:target="viewState">
+            <div wire:loading.class="d-none" wire:target="viewState">
                 @yield('content')
             </div>
         </div>
