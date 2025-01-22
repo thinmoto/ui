@@ -8,6 +8,8 @@ use Livewire\Livewire;
 use Thinmoto\Ui\Components\Checkbox;
 use Thinmoto\Ui\Components\Datepicker;
 use Thinmoto\Ui\Components\Group;
+use Thinmoto\Ui\Components\Image;
+use Thinmoto\Ui\Components\ImageUpload;
 use Thinmoto\Ui\Components\Input;
 use Thinmoto\Ui\Components\InputGroup;
 use Thinmoto\Ui\Components\Loader;
@@ -39,6 +41,7 @@ class PackageServiceProvider extends ServiceProvider
 	    Blade::component('ui::datepicker', Datepicker::class);
 	    Blade::component('ui::timepicker', Timepicker::class);
 	    Blade::component('ui::style-select', StyleSelect::class);
+	    Blade::component('ui::image-upload', ImageUpload::class);
 
 	    Livewire::component('ui::modal', Modal::class);
 	    Livewire::component('ui::side-view', SideView::class);
