@@ -12,6 +12,8 @@ class Modal extends Component
 
 	public $modalStateHook;
 
+	protected array $keepOnClose = [];
+
     public function render()
     {
         return view('ui::livewire.modal');
@@ -27,5 +29,15 @@ class Modal extends Component
 	public function close(): void
 	{
 		$this->modalState = false;
+
+		$this->resetExcept(array_merge($this->keepOnClose, [
+			'modalState', 'modalSize', 'modalStateHook'
+		]));
+	}
+
+	public function updatedModalState(): void
+	{
+		if(!$this->modalState)
+			$this->close();
 	}
 }
