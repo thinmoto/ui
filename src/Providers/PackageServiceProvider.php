@@ -13,6 +13,7 @@ use Thinmoto\Ui\Components\InputGroup;
 use Thinmoto\Ui\Components\Loader;
 use Thinmoto\Ui\Components\Radio;
 use Thinmoto\Ui\Components\Select;
+use Thinmoto\Ui\Components\StyleSelect;
 use Thinmoto\Ui\Components\Textarea;
 use Thinmoto\Ui\Components\Timepicker;
 use Thinmoto\Ui\Livewire\Modal;
@@ -37,6 +38,7 @@ class PackageServiceProvider extends ServiceProvider
 	    Blade::component('ui::select', Select::class);
 	    Blade::component('ui::datepicker', Datepicker::class);
 	    Blade::component('ui::timepicker', Timepicker::class);
+	    Blade::component('ui::style-select', StyleSelect::class);
 
 	    Livewire::component('ui::modal', Modal::class);
 	    Livewire::component('ui::side-view', SideView::class);
