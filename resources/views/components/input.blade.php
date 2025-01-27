@@ -1,6 +1,12 @@
+@props([
+    'errors' => null,
+    'class' => 'form-control',
+])
+
 <input
     type="{{ $type }}"
-    {{ $attributes->merge(['class' => 'form-control '.$class])->except('errors') }}
+    class="{{ $class }}{{ (!empty($errors) ? ' is-invalid' : '') }}"
+    {{ $attributes->except('errors') }}
 >
 
 @if(!empty($errors))

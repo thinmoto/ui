@@ -1,4 +1,9 @@
-<div class="input-group flex-nowrap">
+@props([
+    'errors' => null,
+    'class' => 'input-group flex-nowrap',
+])
+
+<div class="{{ $class }}{{ (!empty($errors) ? ' is-invalid' : '') }}">
     @if(!empty($prepend))
         <span class="input-group-text">{{ $prepend }}</span>
     @endif
@@ -10,6 +15,6 @@
     @endif
 </div>
 
-@if(!empty($errors))
-        <div class="invalid-feedback">{{ $errors ? implode('<br>', $errors) : '' }}</div>
+@if(!empty($errors) && count($errors))
+     <div class="invalid-feedback">{{ implode('<br>', $errors) }}</div>
 @endif

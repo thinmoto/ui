@@ -11,6 +11,8 @@ class SideView extends Component
 
 	public $viewStateHook;
 
+	protected array $keepOnClose = [];
+
     public function render()
     {
         return view('ui::livewire.side-view');
@@ -26,5 +28,15 @@ class SideView extends Component
 	public function close(): void
 	{
 		$this->viewState = false;
+
+		$this->resetExcept(array_merge($this->keepOnClose, [
+			'viewState', 'viewStateHook'
+		]));
+	}
+
+	public function updatedViewState(): void
+	{
+		if(!$this->viewState)
+			$this->close();
 	}
 }
