@@ -8,7 +8,6 @@ use Illuminate\View\View;
 class Input extends Component
 {
 	public function __construct(
-		public string $type = 'text',
 		public $errors = null,
 	) {}
 
