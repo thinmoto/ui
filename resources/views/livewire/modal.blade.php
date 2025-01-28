@@ -19,15 +19,9 @@
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" wire:loading.class="d-none" wire:target="modalStateHook">
                     <h5 class="modal-title mt-0 d-flex align-items-center">
-                        @if(!$modalState)
-                            <div>
-                                {{ __('ui::loading') }}
-                            </div>
-                        @endif
-
-                        <div wire:loading.class="d-none" wire:target="modalStateHook">
+                        <div>
                             @yield('modal-title')
                         </div>
                     </h5>
