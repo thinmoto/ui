@@ -1,7 +1,7 @@
-@import "bootstrap/scss/bootstrap";
-@import "flatpickr/dist/flatpickr.css";
+// @import "bootstrap/scss/bootstrap";
+@use "flatpickr/dist/flatpickr.css" as *;
 // @import "choices.js/src/styles/choices";
-@import "choices-bootstrap5";
+@use "choices-bootstrap5" as *;
 
 .form-group
 {
@@ -21,21 +21,21 @@
     {
         .form-control
         {
-            border-color: var(--#{$prefix}form-invalid-color);
+            border-color: var(--bs-form-invalid-color);
 
-            @if $enable-validation-icons
+            /*@if $enable-validation-icons
             {
                 padding-right: $input-height-inner;
                 background-image: escape-svg($form-feedback-icon-invalid);
                 background-repeat: no-repeat;
                 background-position: right $input-height-inner-quarter center;
                 background-size: $input-height-inner-half $input-height-inner-half;
-            }
+            }*/
 
             &:focus
             {
-                border-color: var(--#{$prefix}form-invalid-border-color);
-                box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+                border-color: var(--bs-form-invalid-border-color);
+                box-shadow: 0 0 var(--bs-input-btn-focus-blur) var(--bs-input-focus-width) rgba(var(--bs-danger-rgb), var(--bs-input-btn-focus-color-opacity));
             }
         }
     }
@@ -63,14 +63,14 @@
         position: absolute;
         inset: 0;
         border-radius: 50%;
-        border: 5px solid $light;
+        border: 5px solid var(--bs-light);
         animation: prixClipFix 2s linear infinite ;
     }
 
     .loader::after
     {
         transform: rotate3d(90, 90, 0, 180deg );
-        border-color: $primary;
+        border-color: var(--bs-primary);
     }
 
     @keyframes rotating

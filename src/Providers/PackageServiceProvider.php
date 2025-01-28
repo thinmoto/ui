@@ -30,6 +30,10 @@ class PackageServiceProvider extends ServiceProvider
     {
 	    $this->loadViewsFrom(__DIR__.'/../../resources/views', 'ui');
 
+	    $this->publishes([
+		    __DIR__.'/../../resources/assets' => resource_path('vendor/thinmoto/ui'),
+	    ], 'thinmoto-ui-assets');
+
 	    Blade::component('ui::loader', Loader::class);
 	    Blade::component('ui::group', Group::class);
 	    Blade::component('ui::input', Input::class);

@@ -15,6 +15,16 @@
         "laravel/framework": "^10.0|^11.0",
         "livewire/livewire": "^3.0"
     },
+    "scripts": {
+        "post-install-cmd": [
+            "@php artisan vendor:publish --tag=thinmoto-ui-assets --ansi --force",
+            "npm install bootstrap font-awesome flatpickr choices.js"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=thinmoto-ui-assets --ansi --force",
+            "npm install bootstrap font-awesome flatpickr choices.js"
+        ]
+    },
     "extra" : {
         "laravel" : {
             "providers" : [
