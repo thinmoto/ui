@@ -11,6 +11,8 @@
     @endforeach
 </select>
 
-@if($errors && count($errors))
-    <div class="invalid-feedback">{{ $errors ? implode('<br>', $errors) : '' }}</div>
+@if(!empty($errors))
+    <div class="invalid-feedback">
+        {!! implode('<br>', $errors) !!}
+    </div>
 @endif

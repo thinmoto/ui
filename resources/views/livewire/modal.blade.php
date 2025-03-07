@@ -19,14 +19,17 @@
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
             <div class="modal-content">
-                <div class="modal-header" wire:loading.class="d-none" wire:target="modalStateHook">
-                    <h5 class="modal-title mt-0 d-flex align-items-center">
-                        <div>
-                            @yield('modal-title')
-                        </div>
-                    </h5>
-                    <button type="button" class="btn-close" x-on:click="hide()" aria-label="Close"></button>
-                </div>
+                @hasSection('modal-title')
+                    <div class="modal-header" wire:loading.class="d-none" wire:target="modalStateHook">
+                        <h5 class="modal-title mt-0 d-flex align-items-center">
+                            <div>
+                                @yield('modal-title')
+                            </div>
+                        </h5>
+                        <button type="button" class="btn-close" x-on:click="hide()" aria-label="Close"></button>
+                    </div>
+                @endif
+
                 <div class="modal-body">
                     @if(!$modalState)
                         <div>
@@ -38,6 +41,12 @@
                         @yield('modal-content')
                     </div>
                 </div>
+
+                @hasSection('modal-footer')
+                    <div class="modal-footer">
+                        @yield('modal-footer')
+                    </div>
+                @endif
             </div>
         </div>
     </div>

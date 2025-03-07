@@ -15,6 +15,8 @@
     @endif
 </div>
 
-@if(!empty($errors) && count($errors))
-     <div class="invalid-feedback">{{ implode('<br>', $errors) }}</div>
+@if(!empty($errors))
+    <div class="invalid-feedback">
+        {!! implode('<br>', $errors) !!}
+    </div>
 @endif
