@@ -8,6 +8,7 @@
             style="{{ $modalState == true ? 'display:block' : '' }}"
             wire:ignore.self
             x-on:keydown.escape.window="hide()"
+            wire:key="modal.{{ $this->getId() }}"
     >
         <div
                 class="transform transition-all modal-dialog modal-{{ $modalSize }}"
@@ -30,14 +31,14 @@
                     </div>
                 @endif
 
-                <div class="modal-body">
+                <div class="modal-body" wire:key="modal.body.{{ $this->getId() }}">
                     @if(!$modalState)
                         <div>
                             <x-ui::loader />
                         </div>
                     @endif
 
-                    <div wire:loading.class="d-none" wire:target="modalState" wire:key="ui-modal-content">
+                    <div wire:loading.class="d-none" wire:target="modalState" wire:key="modal.content.{{ $this->getId() }}">
                         @yield('modal-content')
                     </div>
                 </div>
