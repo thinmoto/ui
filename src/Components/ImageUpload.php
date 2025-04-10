@@ -8,7 +8,7 @@ use Illuminate\View\View;
 class ImageUpload extends Component
 {
 	public function __construct(
-		public ?string $image,
+		public ?string $image = null,
 		public string $class = '',
 	) {}
 

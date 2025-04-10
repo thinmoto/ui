@@ -47,6 +47,8 @@ class PackageServiceProvider extends ServiceProvider
 	    Blade::component('ui::style-select', StyleSelect::class);
 	    Blade::component('ui::image-upload', ImageUpload::class);
 
+	    Blade::component('ui::x-modal', \Thinmoto\Ui\Components\Modal::class);
+
 	    Livewire::component('ui::modal', Modal::class);
 	    Livewire::component('ui::side-view', SideView::class);
     }
