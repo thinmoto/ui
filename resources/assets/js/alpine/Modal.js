@@ -30,9 +30,9 @@ export default (element, state = false, modalStateHook) => ({
 
             component.myElement.classList.add('modal_'+(component.myCounter));
 
-            setTimeout(function (){
+            //setTimeout(function (){
                 component.myModal._backdrop._element.classList.add('modal_backdrop_'+(component.myCounter));
-            }, 50);
+            //}, 50);
         }
         else
         {
@@ -40,9 +40,9 @@ export default (element, state = false, modalStateHook) => ({
 
             component.myElement.classList.remove('modal_'+(component.myCounter));
 
-            setTimeout(function (){
+            //setTimeout(function (){
                 component.myModal._backdrop._element.classList.remove('modal_backdrop_'+(component.myCounter));
-            }, 500);
+            //}, 500);
         }
     },
 
