@@ -1,4 +1,4 @@
-<textarea
+<textarea x-data="Textarea($refs.input)" x-ref="input"
     {{ $attributes->merge(['class' => 'form-control '.(!empty($class) ? $class : '')])->except('errors') }}
 ></textarea>
 

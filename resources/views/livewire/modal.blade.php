@@ -1,5 +1,5 @@
 <div>
-    <x-ui::x-modal :modal-state="$modalState" :modal-id="$modalSize" :modal-size="$modalSize">
+    <x-ui::x-modal :modal-state="$modalState" :modal-size="$modalSize">
         <x-slot name="title">
             @yield('modal-title')
         </x-slot>
