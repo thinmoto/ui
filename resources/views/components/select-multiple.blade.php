@@ -1,6 +1,5 @@
 <div class="dropdown" x-on:click.away="open = false" x-data="{
     open: false,
-    label: '',
     placeholder: '{{ $empty ?? '' }}',
     options: {{ json_encode($options) }},
     selected: @entangle($attributes->whereStartsWith('wire:model')->first()).live,
@@ -25,9 +24,9 @@
         }
 
         if(!label.length)
-            this.label = this.placeholder ? this.placeholder : 'Empty';
+            return this.placeholder ? this.placeholder : 'Empty';
         else
-            this.label = label.join(', ');
+            return label.join(', ');
     },
     toggleCheckbox(event){
         let checkbox = event.target.querySelector('input');
@@ -40,7 +39,7 @@
      x-init="updateLabel()"
 >
 
-    <div class="form-select" @disabled($disabled) x-on:click="open = !open" x-text="label">
+    <div class="form-select" @disabled($disabled) x-on:click="open = !open" x-text="updateLabel">
 
     </div>
 
@@ -51,7 +50,7 @@
             <li>
                 <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)" @disabled(in_array($k, $disabledOptions)) x-on:click="toggleCheckbox($event)">
                     <div class="form-check" style="position: relative; top: 2px;">
-                        <input class="form-check-input" type="checkbox" value="{{ $k }}" x-model="selected" @disabled(in_array($k, $disabledOptions)) x-on:change="updateLabel">
+                        <input class="form-check-input" type="checkbox" value="{{ $k }}" x-model="selected" @disabled(in_array($k, $disabledOptions))>
                     </div>
 
                     {{ $v }}
