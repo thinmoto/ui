@@ -15,6 +15,7 @@ use Thinmoto\Ui\Components\InputGroup;
 use Thinmoto\Ui\Components\Loader;
 use Thinmoto\Ui\Components\Radio;
 use Thinmoto\Ui\Components\Select;
+use Thinmoto\Ui\Components\SelectMultiple;
 use Thinmoto\Ui\Components\StyleSelect;
 use Thinmoto\Ui\Components\Textarea;
 use Thinmoto\Ui\Components\Timepicker;
@@ -42,6 +43,7 @@ class PackageServiceProvider extends ServiceProvider
 	    Blade::component('ui::checkbox', Checkbox::class);
 	    Blade::component('ui::radio', Radio::class);
 	    Blade::component('ui::select', Select::class);
+	    Blade::component('ui::select-multiple', SelectMultiple::class);
 	    Blade::component('ui::datepicker', Datepicker::class);
 	    Blade::component('ui::timepicker', Timepicker::class);
 	    Blade::component('ui::style-select', StyleSelect::class);
