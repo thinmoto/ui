@@ -1,8 +1,8 @@
-<div class="dropdown" x-on:click.away="open = false" x-data="{
+@php($append = explode('.', $attributes->wire('model')->directive)[1] ?? '')<div class="dropdown" x-on:click.away="open = false" x-data="{
     open: false,
     placeholder: '{{ $empty ?? '' }}',
     options: {{ json_encode($options) }},
-    selected: @entangle($attributes->whereStartsWith('wire:model')->first()).live,
+    selected: $wire.entangle('{{ $attributes->whereStartsWith('wire:model')->first() }}'){{ $append ? '.'.$append : '' }},
     updateLabel(){
         let label = [];
 
@@ -36,7 +36,7 @@
 
         this.updateLabel();
     } }"
-     x-init="updateLabel()"
+                                                                                 x-init="updateLabel()"
 >
 
     <div class="form-select" @disabled($disabled) x-on:click="open = !open" x-text="updateLabel">
