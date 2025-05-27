@@ -1,8 +1,8 @@
 @php($append = explode('.', $attributes->wire('model')->directive)[1] ?? '')<div class="dropdown" x-on:click.away="open = false" x-data="{
+    selected: $wire.entangle('{{ $attributes->whereStartsWith('wire:model')->first() }}'){{ $append ? '.'.$append : '' }},
     open: false,
     placeholder: '{{ $empty ?? '' }}',
     options: {{ json_encode($options) }},
-    selected: $wire.entangle('{{ $attributes->whereStartsWith('wire:model')->first() }}'){{ $append ? '.'.$append : '' }},
     updateLabel(){
         let label = [];
 
