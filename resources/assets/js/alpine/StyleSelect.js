@@ -1,13 +1,27 @@
 import Choices from 'choices.js';
 
-export default (element, options) => ({
+export default (element, livewireModel) => ({
     myElement: element,
-    myOptions: options,
     mySelect: null,
+    value: livewireModel,
 
     init() {
-        let component = this;
+        const self = this;
 
-        component.mySelect = new Choices(component.myElement);
+        // init Choices
+        self.mySelect = new Choices(self.myElement, {
+            removeItemButton: false,
+            shouldSort: false,
+        });
+
+        console.log(self.value);
+
+        // set initial value
+        self.mySelect.setChoiceByValue(self.value.toString());
+
+        // sync back on change
+        self.myElement.addEventListener('change', () => {
+            self.value = self.myElement.value;
+        });
     }
-})
+});
