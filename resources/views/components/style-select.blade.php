@@ -1,4 +1,4 @@
-<div x-data="StyleSelect($refs.input, {{ json_encode($options) }})" x-init="">
+<div x-data="StyleSelect($refs.input, {{ json_encode($options) }})" x-init="" class="{{ (!empty($errors) ? ' with-errors' : '') }}">
     <div wire:ignore>
         <select
                 x-ref="input"
