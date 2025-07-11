@@ -14,10 +14,8 @@ export default (element, livewireModel) => ({
             shouldSort: false,
         });
 
-        console.log(self.value);
-
-        // set initial value
-        self.mySelect.setChoiceByValue(self.value.toString());
+        if(self.value)
+            self.mySelect.setChoiceByValue(self.value.toString());
 
         // sync back on change
         self.myElement.addEventListener('change', () => {
