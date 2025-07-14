@@ -10,8 +10,8 @@ export default (element, livewireModel) => ({
 
         // init Choices
         self.mySelect = new Choices(self.myElement, {
-            removeItemButton: false,
-            shouldSort: false,
+            // removeItemButton: false,
+            // shouldSort: false,
         });
 
         if(self.value)
@@ -21,5 +21,20 @@ export default (element, livewireModel) => ({
         self.myElement.addEventListener('change', () => {
             self.value = self.myElement.value;
         });
-    }
+    },
+
+    clear() {
+        const self = this;
+
+        self.myElement.selectedIndex = -1;
+        self.mySelect.setChoiceByValue('');
+
+        self.refresh();
+    },
+
+    refresh() {
+        const self = this;
+
+        self.mySelect.refresh();
+    },
 });

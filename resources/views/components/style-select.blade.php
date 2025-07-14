@@ -5,6 +5,8 @@
                 {{ $attributes->merge(['class' => 'form-select '.$class])->whereDoesntStartWith('wire:model')->except(['errors']) }}
                 @disabled($disabled)
                 onchange="this.dispatchEvent(new InputEvent('input'))"
+                x-on:refresh="refresh"
+                x-on:clear="clear"
         >
             @if($empty != '')
                 <option value="">{{ $empty }}</option>
