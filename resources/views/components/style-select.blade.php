@@ -1,4 +1,4 @@
-<div x-data="StyleSelect($refs.input, @entangle($attributes->wire('model')).live)" x-init="" class="{{ (!empty($errors) ? ' with-errors' : '') }}">
+<div x-data="StyleSelect($refs.input, {{ json_encode($settings) }}, @entangle($attributes->wire('model')).live)" x-init="" class="{{ (!empty($errors) ? ' with-errors' : '') }}">
     <div wire:ignore>
         <select
                 x-ref="input"

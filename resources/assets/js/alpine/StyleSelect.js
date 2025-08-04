@@ -1,9 +1,10 @@
 import Choices from 'choices.js';
 
-export default (element, livewireModel) => ({
+export default (element, settings, livewireModel) => ({
     myElement: element,
     mySelect: null,
     value: livewireModel,
+    myOptions: settings,
 
     init() {
         const self = this;
@@ -12,6 +13,7 @@ export default (element, livewireModel) => ({
         self.mySelect = new Choices(self.myElement, {
             removeItemButton: false,
             shouldSort: false,
+            ...self.myOptions
         });
 
         if(self.value)

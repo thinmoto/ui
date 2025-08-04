@@ -13,6 +13,7 @@ class StyleSelect extends Component
 		public string $empty = '',
 		public bool $disabled = false,
 		public $errors = [],
+		public $settings = [],
 		public $disabledOptions = [],
 	) {}
 
