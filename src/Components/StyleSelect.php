@@ -15,7 +15,12 @@ class StyleSelect extends Component
 		public $errors = [],
 		public $settings = [],
 		public $disabledOptions = [],
-	) {}
+	) {
+		$this->settings = array_merge($this->settings, [
+			'itemSelectText' => '',
+			'searchEnabled' => false,
+		]);
+	}
 
 	public function render(): View|string
 	{
